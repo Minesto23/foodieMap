@@ -1,0 +1,130 @@
+/* ===========================
+   Variables generales
+=========================== */
+:root {
+    --primary-color: #e53e3e; /* Color principal */
+    --primary-hover-color: #c53030; /* Color al interactuar */
+    --secondary-color: #ccc; /* Color secundario para bordes */
+    --focus-border-color: #e53e3e; /* Color del borde al enfocar */
+    --background-color: white; /* Fondo blanco */
+    --hover-background-color: #f0f0f0; /* Fondo al pasar el mouse */
+    --text-color: #333; /* Color del texto */
+    --font-size-large: 1.1rem; /* Tamaño de fuente grande */
+    --font-size-normal: 1rem; /* Tamaño de fuente normal */
+    --icon-size: 60px; /* Tamaño de íconos */
+    --border-radius: 8px; /* Radio de bordes */
+    --input-border-radius: 6px; /* Bordes de campos de texto */
+    --transition-speed: 0.2s; /* Velocidad de transiciones */
+    --transition-speed-fast: 0.3s; /* Velocidad de transiciones rápidas */
+    --button-size: 68px; /* Tamaño uniforme de botones */
+    --input-width: 200px; /* Ancho inicial del campo de búsqueda */
+    --input-width-focus: 250px; /* Ancho al enfocar */
+    --autocomplete-max-height: 150px; /* Altura máxima de autocompletado */
+    --suggestion-padding: 8px 12px; /* Espaciado de sugerencias */
+    --scrollbar-width: 8px; /* Ancho de la barra de desplazamiento */
+}
+
+/* ===========================
+   Contenedor principal
+=========================== */
+.search-button-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Espaciado entre elementos */
+}
+
+/* ===========================
+   Campo de búsqueda
+=========================== */
+.search-input {
+    padding: var(--suggestion-padding); /* Espaciado interno del campo */
+    border: 2px solid var(--secondary-color); /* Borde inicial */
+    border-radius: var(--input-border-radius); /* Bordes redondeados */
+    font-size: var(--font-size-large); /* Fuente del texto */
+    width: var(--input-width); /* Ancho inicial */
+    transition: width var(--transition-speed-fast) ease, border-color var(--transition-speed-fast) ease; /* Animaciones */
+}
+
+.search-input:focus {
+    border-color: var(--focus-border-color); /* Color del borde al enfocar */
+    width: var(--input-width-focus); /* Expande el ancho */
+}
+
+/* ===========================
+   Botones de icono
+=========================== */
+.icon-button {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border: none;
+    border-radius: var(--border-radius); /* Suaviza los bordes */
+    width: var(--button-size); /* Tamaño uniforme del botón */
+    height: var(--button-size); /* Botón cuadrado */
+    cursor: pointer;
+    font-size: var(--icon-size); /* Tamaño del ícono dentro del botón */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centrar contenido */
+    padding: 0; /* Sin espacio interno */
+    transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
+}
+
+.icon-button:hover,
+.icon-button:focus {
+    background-color: var(--primary-hover-color); /* Cambia el color al interactuar */
+    outline: none;
+}
+
+/* ===========================
+   Autocompletado
+=========================== */
+.autocomplete-container {
+    position: relative;
+}
+
+/* Lista de sugerencias */
+.suggestions-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--background-color); /* Fondo blanco */
+    border: 1px solid var(--secondary-color); /* Borde de la lista */
+    border-radius: var(--input-border-radius);
+    max-height: var(--autocomplete-max-height); /* Altura máxima */
+    overflow-y: auto; /* Scroll activado */
+    z-index: 10; /* Asegura que esté encima de otros elementos */
+    margin-top: 5px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Elementos individuales de las sugerencias */
+.suggestion-item {
+    padding: var(--suggestion-padding); /* Espaciado interno */
+    cursor: pointer;
+    font-size: var(--font-size-normal); /* Tamaño del texto */
+    transition: background-color var(--transition-speed) ease;
+}
+
+.suggestion-item:hover {
+    background-color: var(--hover-background-color); /* Fondo al pasar el mouse */
+}
+
+/* ===========================
+   Scrollbar personalizado
+=========================== */
+.suggestions-list::-webkit-scrollbar {
+    width: var(--scrollbar-width);
+}
+
+.suggestions-list::-webkit-scrollbar-thumb {
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius);
+}
+
+.suggestions-list::-webkit-scrollbar-thumb:hover {
+    background-color: var(--text-color); /* Fondo más oscuro al interactuar */
+}

@@ -1,0 +1,159 @@
+/* ===========================
+   Variables generales
+=========================== */
+:root {
+    --primary-color: #e53e3e; /* Color principal */
+    --primary-color-hover: #c53030; /* Hover para color principal */
+    --secondary-color: #f8d7da; /* Color secundario */
+    --text-color: #333; /* Color del texto */
+    --background-color: white; /* Fondo base */
+    --border-radius: 8px; /* Radio de bordes */
+    --transition-speed: 0.2s; /* Velocidad de transiciones */
+    --icon-size: 24px; /* Tamaño de íconos */
+    --button-size: 68px; /* Tamaño de botones principales */
+    --font-size-small: 0.9rem; /* Tamaño de fuente pequeño */
+    --font-size-normal: 1rem; /* Tamaño de fuente normal */
+}
+
+/* ===========================
+   Contenedor principal
+=========================== */
+.payment-method-container {
+    position: relative; /* Base para el menú dropdown */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ===========================
+   Dropdown menu
+=========================== */
+.payment-method-dropdown {
+    position: absolute;
+    top: 0;
+    left: 120%; /* Ubicación a la derecha */
+    background-color: var(--background-color);
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    padding: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    gap: 10px;
+    z-index: 1000;
+    max-height: 300px; /* Límite de altura */
+    overflow-y: auto; /* Scroll para contenido extenso */
+}
+
+/* Scroll personalizado para dropdown */
+.payment-method-dropdown::-webkit-scrollbar {
+    width: 8px;
+}
+
+.payment-method-dropdown::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
+}
+
+.payment-method-dropdown::-webkit-scrollbar-thumb:hover {
+    background-color: #aaa;
+}
+
+/* ===========================
+   Opciones del dropdown
+=========================== */
+.payment-method-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: var(--background-color);
+    color: var(--text-color);
+    font-size: var(--font-size-normal);
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    text-align: center;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.payment-method-option:hover {
+    background-color: #f0f0f0;
+}
+
+.payment-method-option.selected {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+}
+
+/* Íconos en las opciones */
+.payment-method-option svg {
+    font-size: var(--icon-size);
+}
+
+/* ===========================
+   Botón para alternar dropdown
+=========================== */
+.payment-method-toggle-button {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border: none;
+    border-radius: var(--border-radius);
+    width: var(--button-size);
+    height: var(--button-size);
+    cursor: pointer;
+    font-size: var(--icon-size); /* Tamaño del ícono */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: background-color var(--transition-speed);
+}
+
+.payment-method-toggle-button:hover,
+.payment-method-toggle-button:focus {
+    background-color: var(--primary-color-hover);
+    outline: none;
+}
+
+/* ===========================
+   Botón para limpiar filtro
+=========================== */
+.clear-filter-button {
+    grid-column: span 2; /* Ocupa ambas columnas */
+    text-align: center;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    padding: 8px;
+    font-size: var(--font-size-small);
+    cursor: pointer;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+    margin-bottom: 10px;
+}
+
+.clear-filter-button:hover {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+}
+
+/* ===========================
+   Botón "Aplicar"
+=========================== */
+.payment-method-apply-button {
+    grid-column: span 2; /* Ocupa ambas columnas */
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 8px 0;
+    font-size: var(--font-size-small);
+    cursor: pointer;
+    text-align: center;
+    transition: background-color var(--transition-speed);
+    margin-top: 10px;
+}
+
+.payment-method-apply-button:hover {
+    background-color: var(--primary-color-hover);
+}

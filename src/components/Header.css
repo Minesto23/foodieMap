@@ -1,0 +1,137 @@
+/* ===========================
+   Variables generales
+=========================== */
+:root {
+  --primary-color: #e53e3e; /* Color principal */
+  --primary-hover-color: #c53030; /* Color al pasar el mouse */
+  --text-color: #333; /* Color del texto */
+  --background-color: rgba(255, 255, 255, 0.35); /* Fondo más transparente */
+  --background-blur: blur(10px); /* Efecto de desenfoque */
+  --shadow-color: rgba(0, 0, 0, 0.15); /* Color de sombra */
+  --font-size-title: 1.5rem; /* Tamaño del título */
+  --font-size-title-lg: 1.8rem; /* Tamaño del título en pantallas grandes */
+  --font-size-text: 0.9rem; /* Tamaño del texto */
+  --font-size-text-lg: 1rem; /* Tamaño del texto en pantallas grandes */
+  --font-size-button: 0.875rem; /* Tamaño del botón */
+  --font-size-button-lg: 1rem; /* Tamaño del botón en pantallas grandes */
+  --padding-container: 12px 20px; /* Padding del contenedor */
+  --padding-container-lg: 16px 40px; /* Padding del contenedor en pantallas grandes */
+  --padding-button: 10px 16px; /* Padding del botón */
+  --padding-button-lg: 12px 20px; /* Padding del botón en pantallas grandes */
+  --gap-content: 12px; /* Espaciado entre contenido */
+  --gap-content-lg: 20px; /* Espaciado en pantallas grandes */
+  --margin-content: 10px; /* Margen del contenido */
+  --margin-content-lg: 20px; /* Margen en pantallas grandes */
+  --border-radius: 16px; /* Bordes redondeados */
+  --logo-size: 48px; /* Tamaño del logo */
+  --transition-speed: 0.2s; /* Velocidad de las transiciones */
+}
+
+/* ===========================
+   Contenedor del header
+=========================== */
+.header-container {
+    /* position: fixed; */
+    /* top: 0; */
+    /* width: 100%; */
+    background-color: var(--background-color);
+    backdrop-filter: var(--background-blur);
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--padding-container);
+}
+
+/* ===========================
+   Estilo del logo
+=========================== */
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-content);
+  margin-right: var(--margin-content); /* Margen derecho del logo */
+}
+
+.header-container a{
+  text-decoration: none; /* Elimina el subrayado */
+  /* color: inherit; Asegura que use el color de texto heredado */
+}
+
+.header-logo-img {
+  width: var(--logo-size);
+  height: var(--logo-size);
+  object-fit: cover;
+}
+
+.header-title {
+  font-size: var(--font-size-title);
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+/* ===========================
+   Estilo de contacto
+=========================== */
+.header-contact {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-content);
+  margin-left: var(--margin-content); /* Margen izquierdo del contenido */
+}
+
+.header-text {
+  font-size: var(--font-size-text);
+  color: var(--text-color);
+  white-space: nowrap;
+  margin-right: var(--margin-content); /* Margen derecho del texto */
+}
+
+.header-button {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  background-color: var(--primary-color);
+  padding: var(--padding-button);
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-button);
+  transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
+}
+
+.header-button:hover {
+  background-color: var(--primary-hover-color);
+  transform: scale(1.05);
+}
+
+/* ===========================
+   Media queries
+=========================== */
+@media (min-width: 768px) {
+  .header-container {
+    padding: var(--padding-container-lg);
+  }
+
+  .header-logo {
+    gap: var(--gap-content-lg); /* Más espacio entre elementos */
+  }
+
+  .header-title {
+    font-size: var(--font-size-title-lg);
+  }
+
+  .header-text {
+    font-size: var(--font-size-text-lg);
+    margin-right: var(--margin-content-lg); /* Margen derecho en pantallas grandes */
+  }
+
+  .header-button {
+    font-size: var(--font-size-button-lg);
+    padding: var(--padding-button-lg);
+  }
+}
+
+@media (max-width: 768px) {
+  .header-text {
+    display: none; /* Oculta el texto en pantallas pequeñas */
+  }
+}

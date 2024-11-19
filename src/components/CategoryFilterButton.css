@@ -1,0 +1,142 @@
+/* ===========================
+   Variables generales
+=========================== */
+:root {
+    --primary-color: #e53e3e; /* Color principal */
+    --primary-color-hover: #c53030; /* Hover del color principal */
+    --secondary-color: #f8d7da; /* Color secundario */
+    --text-color: #333; /* Color del texto */
+    --background-color: white; /* Fondo base */
+    --border-radius: 8px; /* Radio de bordes */
+    --transition-speed: 0.2s; /* Velocidad de transiciones */
+    --icon-size: 30px; /* Tamaño de íconos */
+    --button-size: 68px; /* Tamaño de botones principales */
+    --font-size-small: 0.9rem; /* Tamaño de fuente pequeño */
+    --font-size-normal: 1rem; /* Tamaño de fuente normal */
+}
+
+/* ===========================
+   Contenedor principal
+=========================== */
+.category-filter-button-container {
+    position: relative; /* Base para el dropdown */
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Espaciado entre elementos */
+}
+
+/* ===========================
+   Dropdown (menú desplegable)
+=========================== */
+.category-filter-dropdown {
+    position: absolute;
+    top: 0;
+    left: 120%; /* Posicionado a la derecha */
+    background-color: var(--background-color);
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    padding: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas */
+    gap: 10px; /* Espaciado entre opciones */
+    z-index: 1000;
+    max-height: 300px; /* Límite de altura */
+    overflow-y: auto; /* Habilita scroll */
+    width: 500px; /* Ancho fijo */
+}
+
+/* Scroll personalizado */
+.category-filter-dropdown::-webkit-scrollbar {
+    width: 8px;
+}
+
+.category-filter-dropdown::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
+}
+
+.category-filter-dropdown::-webkit-scrollbar-thumb:hover {
+    background-color: #aaa;
+}
+
+/* ===========================
+   Opciones individuales del filtro
+=========================== */
+.category-filter-option {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Espacio entre ícono y texto */
+    padding: 8px 12px;
+    background: var(--background-color);
+    color: var(--text-color);
+    font-size: var(--font-size-normal);
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    text-align: center;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+/* Hover y estado seleccionado */
+.category-filter-option:hover {
+    background-color: #f0f0f0; /* Fondo en hover */
+}
+
+.category-filter-option.selected {
+    background-color: var(--primary-color); /* Fondo seleccionado */
+    color: var(--background-color); /* Texto inverso */
+}
+
+/* Íconos en las opciones */
+.category-filter-option svg {
+    font-size: var(--icon-size);
+}
+
+/* ===========================
+   Botón "Limpiar filtro"
+=========================== */
+.category-clear-filter-button {
+    grid-column: span 3; /* Abarca todas las columnas */
+    text-align: center;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    padding: 8px;
+    font-size: var(--font-size-small);
+    cursor: pointer;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+    margin-bottom: 10px;
+}
+
+/* Hover en "Limpiar filtro" */
+.category-clear-filter-button:hover {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+}
+
+/* ===========================
+   Botón para alternar el menú
+=========================== */
+.category-icon-button {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border: none;
+    border-radius: var(--border-radius); /* Bordes redondeados */
+    width: var(--button-size); /* Tamaño cuadrado */
+    height: var(--button-size);
+    cursor: pointer;
+    font-size: var(--icon-size); /* Tamaño del ícono */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centrar contenido */
+    padding: 0; /* Sin padding */
+    transition: background-color var(--transition-speed);
+}
+
+/* Hover y focus en el botón */
+.category-icon-button:hover,
+.category-icon-button:focus {
+    background-color: var(--primary-color-hover);
+    outline: none;
+}

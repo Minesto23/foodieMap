@@ -1,0 +1,129 @@
+/* ===========================
+   Variables Generales
+=========================== */
+:root {
+    --primary-color: #e53e3e; /* Color principal */
+    --primary-color-hover: #c53030; /* Hover para color principal */
+    --secondary-color: #f8d7da; /* Color secundario */
+    --text-color: #333; /* Color del texto */
+    --background-color: white; /* Fondo blanco */
+    --border-color: #ccc; /* Color del borde */
+    --border-radius: 8px; /* Radio de bordes */
+    --transition-speed: 0.2s; /* Velocidad de las transiciones */
+    --icon-size: 24px; /* Tamaño de íconos */
+    --font-size-small: 0.9rem; /* Tamaño de fuente pequeño */
+    --button-size: 68px; /* Tamaño de botones principales */
+    --dropdown-gap: 10px; /* Espaciado entre opciones del dropdown */
+    --box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra del dropdown */
+    --clear-button-padding: 16px; /* Espaciado interno del botón de limpiar */
+    --clear-button-margin-bottom: 10px; /* Margen inferior del botón de limpiar */
+}
+
+/* ===========================
+   Estilos generales de botones
+=========================== */
+
+/* Contenedor del botón de filtro */
+.service-filter-button-container {
+    position: relative; /* Necesario para posicionar el dropdown */
+    display: flex;
+    align-items: center;
+    gap: var(--dropdown-gap); /* Espaciado entre elementos */
+}
+
+/* Botón principal (toggle) */
+.service-icon-button {
+    background-color: var(--primary-color); /* Color primario */
+    color: var(--background-color); /* Texto blanco */
+    border: none; /* Sin borde */
+    border-radius: var(--border-radius); /* Bordes redondeados */
+    width: var(--button-size);
+    height: var(--button-size);/* Espaciado interno */
+    cursor: pointer;
+    font-size: var(--icon-size); /* Tamaño de fuente */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centrar contenido */
+    transition: background-color var(--transition-speed) ease; /* Transición suave */
+}
+
+/* Hover y focus del botón principal */
+.service-icon-button:hover,
+.service-icon-button:focus {
+    background-color: var(--primary-color-hover); /* Color hover */
+    outline: none; /* Sin borde de foco */
+}
+
+/* ===========================
+   Dropdown de opciones
+=========================== */
+
+/* Dropdown menú (tres columnas) */
+.service-filter-dropdown {
+    position: absolute;
+    top: 0;
+    left: 120%; /* Ubicación a la derecha */
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius); /* Bordes redondeados */
+    padding: 12px; /* Espaciado interno */
+    box-shadow: var(--box-shadow); /* Sombra */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas */
+    gap: var(--dropdown-gap); /* Espaciado entre opciones */
+    z-index: 1000; /* Capa superior */
+}
+
+/* Opciones individuales del filtro */
+.service-filter-option {
+    display: flex;
+    align-items: center; /* Alineación vertical */
+    padding: 8px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    background: var(--background-color); /* Fondo blanco */
+    color: var(--text-color); /* Texto gris oscuro */
+    font-size: var(--font-size-small); /* Tamaño de fuente pequeño */
+    cursor: pointer;
+    border-radius: 4px; /* Bordes redondeados */
+    transition: background-color var(--transition-speed) ease; /* Transición suave */
+}
+
+/* Hover y estado seleccionado para opciones */
+.service-filter-option:hover {
+    background-color: #f1f1f1; /* Fondo en hover */
+}
+
+.service-filter-option.selected {
+    background-color: var(--primary-color); /* Fondo seleccionado */
+    color: var(--background-color); /* Texto inverso */
+}
+
+/* Íconos dentro de las opciones */
+.service-filter-option svg {
+    margin-right: 6px; /* Espaciado con el texto */
+    font-size: var(--icon-size); /* Tamaño del ícono */
+}
+
+/* ===========================
+   Botón para limpiar el filtro
+=========================== */
+
+.service-clear-filter-button {
+    grid-column: span 3; /* Ocupa todas las columnas del dropdown */
+    text-align: center;
+    background-color: var(--secondary-color); /* Fondo secundario */
+    color: var(--primary-color); /* Texto con color primario */
+    border: 1px solid var(--primary-color); /* Borde primario */
+    border-radius: var(--border-radius); /* Bordes redondeados */
+    padding: var(--clear-button-padding); /* Espaciado interno */
+    font-size: var(--font-size-small); /* Tamaño de fuente pequeño */
+    cursor: pointer;
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease; /* Transición suave */
+    margin-bottom: var(--clear-button-margin-bottom); /* Espaciado inferior */
+}
+
+/* Hover en "Limpiar filtro" */
+.service-clear-filter-button:hover {
+    background-color: var(--primary-color); /* Fondo primario */
+    color: var(--background-color); /* Texto blanco */
+}
