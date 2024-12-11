@@ -49,10 +49,10 @@ const SearchButton = ({ onSearch, suggestions }) => {
      */
     const handleSearch = () => {
         if (searchQuery.trim()) {
-            onSearch(searchQuery); // Ejecuta la búsqueda
-            setIsExpanded(false);
-            setSearchQuery(''); // Limpia la consulta
-            setFilteredSuggestions([]); // Limpia las sugerencias
+            onSearch(searchQuery); // Execute the search callback
+            setSearchQuery(''); // Clear the query
+            setFilteredSuggestions([]); // Clear suggestions
+            setIsExpanded(false); // Close the search field immediately
         }
     };
 

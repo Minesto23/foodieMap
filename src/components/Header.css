@@ -31,9 +31,9 @@
    Contenedor del header
 =========================== */
 .header-container {
-    /* position: fixed; */
-    /* top: 0; */
-    /* width: 100%; */
+    position: fixed;
+    top: 0;
+    width: 96%;
     background-color: var(--background-color);
     backdrop-filter: var(--background-blur);
     z-index: 1000;
@@ -53,9 +53,8 @@
   margin-right: var(--margin-content); /* Margen derecho del logo */
 }
 
-.header-container a{
+.header-container a {
   text-decoration: none; /* Elimina el subrayado */
-  /* color: inherit; Asegura que use el color de texto heredado */
 }
 
 .header-logo-img {
@@ -68,6 +67,26 @@
   font-size: var(--font-size-title);
   font-weight: bold;
   color: var(--text-color);
+}
+
+/* ===========================
+   Estilo del mensaje Beta
+=========================== */
+.header-beta {
+  text-align: center;
+  flex-grow: 1; /* Asegura que este contenedor ocupe el espacio central */
+}
+
+.header-beta-text {
+  font-size: var(--font-size-text);
+  color: var(--primary-color);
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.header-beta-text:hover {
+  color: var(--primary-hover-color);
 }
 
 /* ===========================

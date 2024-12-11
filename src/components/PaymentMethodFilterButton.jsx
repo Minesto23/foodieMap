@@ -12,6 +12,7 @@ import {
 import { BsCash } from "react-icons/bs"; // Ícono para el botón
 import { IoMdClose } from "react-icons/io"; // Ícono de cerrar
 import './PaymentMethodFilterButton.css'; // Importar estilos
+import { FaPaypal } from "react-icons/fa";
 
 /**
  * Componente PaymentMethodFilterButton
@@ -57,9 +58,10 @@ const PaymentMethodFilterButton = ({ paymentMethods, onSelectPaymentMethods }) =
      */
     const methodIcons = {
         "Acepta tarjeta": <FaCreditCard />,
-        "Acepta BTC": <FaBitcoin />,
+        "Acepta Binance": <FaBitcoin />,
         "Acepta Efectivo": <FaMoneyBill />,
         "Acepta Pago Móvil": <FaMobileAlt />,
+        "Acepta Paypal": <FaPaypal />
     };
 
     return (

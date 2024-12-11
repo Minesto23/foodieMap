@@ -5,7 +5,15 @@ import MapaSitios from "./components/map";
 
 function App() {
   return (
-    <div className="App">
+    <div
+      className="App"
+      style={{
+        height: "100vh", // Ocupar toda la ventana
+        overflow: "hidden", // Desactivar el scroll
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
       <Header />
       <MapaSitios />
     </div>

@@ -1,5 +1,20 @@
+/* Global CSS */
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Elimina el scroll vertical */
+  height: 100vh; /* Asegúrate de usar toda la altura de la ventana */
+}
+
+html {
+  height: 100%;
+}
+
 .App {
-  text-align: center;
+  height: 100%; /* Establece que ocupe toda la altura */
+  overflow: hidden; /* No permite scroll en la aplicación */
+  display: flex;
+  flex-direction: column;
 }
 
 .App-logo {

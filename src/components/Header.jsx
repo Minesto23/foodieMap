@@ -19,6 +19,16 @@ const Header = () => {
         </div>
       </a>
 
+      {/* Mensaje en el centro */}
+      <div className="header-beta">
+        <span
+          className="header-beta-text"
+          title="Si encuentras errores, por favor contáctanos."
+        >
+          Fase Beta
+        </span>
+      </div>
+
       {/* Texto y botón en la esquina derecha */}
       <div className="header-contact">
         <span className="header-text">¿Quieres ser parte de nuestra familia?</span>
@@ -27,6 +37,7 @@ const Header = () => {
         </a>
       </div>
     </header>
+
   );
 };
 

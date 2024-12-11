@@ -31,7 +31,7 @@ const CategoryFilterButton = ({ categories, onSelectCategory }) => {
     const [isExpanded, setIsExpanded] = useState(false);
 
     // Estado para almacenar la categoría seleccionada
-    const [selectedCategory, setSelectedCategory] = useState(null);
+    const [selectedCategories, setSelectedCategories] = useState([]);
 
     /**
      * Alterna la visibilidad del menú desplegable.
@@ -46,18 +46,29 @@ const CategoryFilterButton = ({ categories, onSelectCategory }) => {
      * @param {string} category - La categoría seleccionada.
      */
     const handleCategoryClick = (category) => {
-        setSelectedCategory(category);
-        onSelectCategory(category); // Notifica el cambio al padre
-        setIsExpanded(false); // Cierra el dropdown
+        setSelectedCategories((prevSelected) => {
+            const isSelected = prevSelected.includes(category);
+            const newSelected = isSelected
+                ? prevSelected.filter((cat) => cat !== category) // Deselecciona
+                : [...prevSelected, category]; // Selecciona
+            onSelectCategory(newSelected); // Notifica al padre
+            return newSelected;
+        });
     };
+
+
 
     /**
      * Limpia la categoría seleccionada.
      */
+    /**
+ * Limpia las categorías seleccionadas.
+ */
     const handleClear = () => {
-        setSelectedCategory(null); // Deselecciona la categoría
-        onSelectCategory(null); // Notifica al padre
+        setSelectedCategories([]); // Clear all selections
+        onSelectCategory([]); // Notify parent that no filter is active
     };
+
 
     /**
      * Mapeo de categorías con sus íconos correspondientes.
@@ -112,11 +123,10 @@ const CategoryFilterButton = ({ categories, onSelectCategory }) => {
                     {categories.map((category) => (
                         <div
                             key={category}
-                            className={`category-filter-option ${selectedCategory === category ? 'selected' : ''
-                                }`}
+                            className={`category-filter-option ${selectedCategories.includes(category) ? 'selected' : ''}`}
                             onClick={() => handleCategoryClick(category)}
                         >
-                            {categoryIcons[category]} {category} {/* Ícono + Nombre */}
+                            {categoryIcons[category]} {category} {/* Icon + Name */}
                         </div>
                     ))}
                 </div>

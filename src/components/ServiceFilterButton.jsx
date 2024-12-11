@@ -89,7 +89,8 @@ const ServiceFilterButton = ({ services, onSelectServices }) => {
                 "Acepta tarjeta",
                 "Acepta BTC",
                 "Acepta Efectivo",
-                "Acepta Pago Móvil"
+                "Acepta Pago Móvil",
+                "Acepta Paypal"
             ].includes(service)
     );
 
