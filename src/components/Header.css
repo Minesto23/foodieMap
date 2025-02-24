@@ -72,21 +72,14 @@
 /* ===========================
    Estilo del mensaje Beta
 =========================== */
-.header-beta {
-  text-align: center;
-  flex-grow: 1; /* Asegura que este contenedor ocupe el espacio central */
+.header-contact-link {
+  color: #007bff; /* Azul por defecto */
+  text-decoration: none;
 }
 
-.header-beta-text {
-  font-size: var(--font-size-text);
-  color: var(--primary-color);
-  font-weight: bold;
-  cursor: pointer;
-  text-transform: uppercase;
-}
-
-.header-beta-text:hover {
-  color: var(--primary-hover-color);
+.header-contact-link:hover {
+  text-decoration: underline;
+  color: #0056b3; /* Azul más oscuro al pasar el cursor */
 }
 
 /* ===========================

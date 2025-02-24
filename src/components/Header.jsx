@@ -7,7 +7,7 @@ import "./Header.css"; // Archivo CSS para estilos
  * Muestra un header transparente con contenido flotante en esquinas opuestas.
  */
 const Header = () => {
-  const foodieLink = "https://detipfoodiee.netlify.app/"; // Enlace reutilizable
+  const foodieLink = "https://admin.tufoodie.com/"; // Enlace reutilizable
 
   return (
     <header className="header-container">
@@ -21,18 +21,23 @@ const Header = () => {
 
       {/* Mensaje en el centro */}
       <div className="header-beta">
-        <span
-          className="header-beta-text"
-          title="Si encuentras errores, por favor contáctanos."
-        >
-          Fase Beta
+        <span className="header-beta-text">
+          Estamos en fase de pruebas, si encuentras algún error por favor{" "}
+          <a
+            href="https://admin.tufoodie.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="header-contact-link"
+          >
+            contáctanos
+          </a>.
         </span>
       </div>
 
       {/* Texto y botón en la esquina derecha */}
       <div className="header-contact">
         <span className="header-text">¿Quieres ser parte de nuestra familia?</span>
-        <a href={foodieLink} target="_blank" rel="noopener noreferrer" className="header-button">
+        <a href="https://admin.tufoodie.com/" target="_blank" rel="noopener noreferrer" className="header-button">
           Sumate
         </a>
       </div>
